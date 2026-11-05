@@ -1,0 +1,153 @@
+{
+  "overeno": "2026-11-05",
+  "poznamka": "Parametry pro orientační výpočet srážek ze mzdy a splátek v oddlužení. Každá hodnota má uvedený zdroj. Závazné je znění předpisů ve Sbírce zákonů.",
+  "roky": {
+    "2026": {
+      "status": "platné",
+      "zivotniMinimum": {
+        "hodnota": 4860,
+        "popis": "Životní minimum jednotlivce k 1. 1. 2026",
+        "zdroj": "Nařízení vlády č. 436/2022 Sb., § 1",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2022/436",
+        "ucinnostOd": "2023-01-01"
+      },
+      "normativniNajemne": {
+        "hodnota": 9430,
+        "popis": "Normativní nájemné, jednočlenná domácnost, obec s alespoň 70 000 obyvateli",
+        "zdroj": "Sdělení MPSV č. 526/2025 Sb., písm. a)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2025/526",
+        "ucinnostOd": "2026-01-01"
+      },
+      "energetickyPausal": {
+        "hodnota": 2300,
+        "popis": "Energetický paušál, jednočlenná domácnost",
+        "zdroj": "Zákon č. 151/2025 Sb., § 32 odst. 2 písm. a)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2025/151",
+        "ucinnostOd": "2025-10-01"
+      },
+      "procentoDluznik": {
+        "hodnota": 85,
+        "popis": "Nezabavitelná částka na dlužníka v procentech součtu tří položek",
+        "zdroj": "Nařízení vlády č. 595/2006 Sb., § 1 odst. 1, ve znění nařízení č. 548/2025 Sb.",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/595",
+        "ucinnostOd": "2026-01-01"
+      },
+      "jmenovatelNaOsobu": {
+        "hodnota": 4,
+        "popis": "Na každou vyživovanou osobu jedna čtvrtina nezabavitelné částky na dlužníka",
+        "zdroj": "Nařízení vlády č. 595/2006 Sb., § 1 odst. 1",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/595",
+        "ucinnostOd": "2026-01-01"
+      },
+      "zaokrouhleni": {
+        "hodnota": "nahoru",
+        "popis": "Celá nezabavitelná částka se zaokrouhluje na celé koruny nahoru",
+        "zdroj": "Nařízení vlády č. 595/2006 Sb., § 3",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/595",
+        "ucinnostOd": "2007-01-01"
+      },
+      "nasobekHraniceDesetiny": {
+        "hodnota": 19,
+        "popis": "Hranice, nad kterou se zbytek mzdy srazí celý: 1,9násobek součtu tří položek (hodnota v desetinách)",
+        "zdroj": "Nařízení vlády č. 595/2006 Sb., § 2, ve znění nařízení č. 548/2025 Sb.",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/595",
+        "ucinnostOd": "2026-01-01"
+      },
+      "minimumExekuciProDveTretiny": {
+        "hodnota": 4,
+        "popis": "Při nejméně 4 exekucích na mzdu se srážejí vždy dvě třetiny (s výjimkou pro některé důchodce)",
+        "zdroj": "Zákon č. 99/1963 Sb., občanský soudní řád, § 279 odst. 4 až 6",
+        "odkaz": "https://e-sbirka.gov.cz/sb/1963/99",
+        "ucinnostOd": "2024-10-01"
+      },
+      "nahradaZamestnavateli": {
+        "hodnota": 50,
+        "popis": "Paušální náhrada zaměstnavateli za měsíc srážek, nejvýše třetina sražené částky zaokrouhlená nahoru; odečte se ze sražené částky",
+        "zdroj": "Vyhláška č. 485/2000 Sb., § 4d a § 4e; občanský soudní řád § 270 odst. 2 a § 279 odst. 1",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2000/485",
+        "ucinnostOd": "2022-01-01"
+      },
+      "urokZProdleniProcenta": {
+        "hodnota": 11.75,
+        "popis": "Úrok z prodlení ročně pro prodlení vzniklé ve 2. pololetí 2026 (repo sazba 3,75 % + 8 bodů). Pro 1. pololetí 2026 platí 11,50 %.",
+        "zdroj": "Nařízení vlády č. 351/2013 Sb., § 2 odst. 1; repo sazba ČNB 3,75 % od 19. 6. 2026",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2013/351",
+        "ucinnostOd": "2026-07-01"
+      },
+      "odmenaSpravceMesicne": {
+        "hodnota": 750,
+        "popis": "Měsíční odměna insolvenčního správce po schválení oddlužení",
+        "zdroj": "Vyhláška č. 313/2007 Sb., § 3 odst. 2 písm. a)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2007/313",
+        "ucinnostOd": "2024-10-01"
+      },
+      "vydajeSpravceMesicne": {
+        "hodnota": 150,
+        "popis": "Měsíční náhrada hotových výdajů insolvenčního správce",
+        "zdroj": "Vyhláška č. 313/2007 Sb., § 7 odst. 4",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2007/313",
+        "ucinnostOd": "2024-10-01"
+      },
+      "dphProcenta": {
+        "hodnota": 21,
+        "popis": "Daň z přidané hodnoty, pokud je správce plátcem (obvyklý případ)",
+        "zdroj": "Zákon č. 235/2004 Sb., o dani z přidané hodnoty, § 47",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2004/235",
+        "ucinnostOd": "2013-01-01"
+      },
+      "delkaOddluzeniMesicu": {
+        "hodnota": 36,
+        "popis": "Délka oddlužení splátkovým kalendářem",
+        "zdroj": "Zákon č. 182/2006 Sb., insolvenční zákon, § 412a odst. 1 písm. b)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/182",
+        "ucinnostOd": "2024-10-01"
+      },
+      "delkaOpakovanehoOddluzeniMesicu": {
+        "hodnota": 60,
+        "popis": "Délka, pokud soud dlužníkovi odpustil dluhy v posledních 20 letech",
+        "zdroj": "Zákon č. 182/2006 Sb., insolvenční zákon, § 412a odst. 3",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/182",
+        "ucinnostOd": "2024-10-01"
+      },
+      "zakazOpakovaniLet": {
+        "hodnota": 12,
+        "popis": "Soud oddlužení zamítne, pokud dlužníkovi odpustil dluhy v posledních 12 letech (výjimka jen z důvodů zvláštního zřetele)",
+        "zdroj": "Zákon č. 182/2006 Sb., insolvenční zákon, § 395 odst. 3 a 6",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/182",
+        "ucinnostOd": "2019-06-01"
+      },
+      "minimumSplatkyNasobekSpravce": {
+        "hodnota": 2,
+        "popis": "Dlužník musí zaplatit celou odměnu a výdaje správce a věřitelům aspoň stejnou částku",
+        "zdroj": "Zákon č. 182/2006 Sb., insolvenční zákon, § 395 odst. 1 písm. b)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/182",
+        "ucinnostOd": "2019-06-01"
+      }
+    },
+    "2027": {
+      "status": "neúplné",
+      "poznamka": "Normativní nájemné pro rok 2027 ještě nebylo vyhlášeno (stav k 5. 11. 2026). Zákon č. 151/2025 Sb. § 28 je nově stanoví podle okresů, nařízení č. 595/2006 Sb. ale odkazuje na obec s alespoň 70 000 obyvateli. Výpočet pro rok 2027 proto zatím není možný.",
+      "zivotniMinimum": {
+        "hodnota": 5500,
+        "popis": "Životní minimum jednotlivce od 1. 10. 2026; pro srážky se použije od ledna 2027",
+        "zdroj": "Zákon č. 110/2006 Sb., § 2, ve znění zákona č. 152/2025 Sb.; nařízení vlády č. 595/2006 Sb., § 4",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2006/110",
+        "ucinnostOd": "2026-10-01"
+      },
+      "normativniNajemne": {
+        "hodnota": null,
+        "popis": "Zatím nevyhlášeno",
+        "zdroj": "Zákon č. 151/2025 Sb., § 28 odst. 1 (vyhlašuje MPSV sdělením)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2025/151",
+        "ucinnostOd": null
+      },
+      "energetickyPausal": {
+        "hodnota": 2300,
+        "popis": "Energetický paušál, jednočlenná domácnost (pokud se do 1. 1. 2027 nezmění)",
+        "zdroj": "Zákon č. 151/2025 Sb., § 32 odst. 2 písm. a)",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2025/151",
+        "ucinnostOd": "2025-10-01"
+      }
+    }
+  }
+}

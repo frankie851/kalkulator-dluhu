@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exekuce, nebo oddlužení?</title>
+  <meta name="description" content="Spočítejte si, kolik vám při exekuci zůstane z výplaty a jak by vypadalo oddlužení. Najděte bezplatnou dluhovou poradnu.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; form-action 'none'; base-uri 'none'">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="lista">
+    <a class="nazev" href="#uvod">Exekuce, nebo oddlužení?</a>
+    <a class="pomoc-odkaz" href="#pomoc">Bezplatná pomoc</a>
+  </header>
+
+  <main id="obsah">
+    <!-- 1. Úvod -->
+    <section class="obrazovka" id="uvod" data-obrazovka aria-labelledby="uvod-nadpis">
+      <aside class="pomoc-pruh">
+        <p>Nemusíte na to být sami. <a class="pomoc-odkaz" href="#pomoc">Najděte bezplatnou dluhovou poradnu</a>.</p>
+      </aside>
+      <h1 id="uvod-nadpis">Nejste v tom sami</h1>
+      <p>Dluhy má hodně lidí. Dá se to řešit.</p>
+      <p>Tady si spočítáte dvě věci. Kolik vám zůstane z výplaty, když máte exekuci. A jak by vypadalo oddlužení.</p>
+      <p>Oddlužení je soudní řízení. Splácíte tři roky podle svých možností. Pak vám soud zbytek dluhů většinou odpustí.</p>
+      <p>Nic neukládáme ani neodesíláme. Výpočet běží jen ve vašem prohlížeči.</p>
+      <p><a class="tlacitko" href="#formular">Začít výpočet</a></p>
+    </section>
+
+    <!-- 2. Formulář -->
+    <section class="obrazovka" id="formular" data-obrazovka aria-labelledby="formular-nadpis" hidden>
+      <aside class="pomoc-pruh">
+        <p>Nevíte si rady s údaji? <a class="pomoc-odkaz" href="#pomoc">Poradna vám pomůže zdarma</a>.</p>
+      </aside>
+      <h1 id="formular-nadpis">Vaše údaje</h1>
+      <p>Stačí přibližná čísla. Nic se nikam neposílá.</p>
+      <form id="vstup" novalidate>
+        <div class="pole">
+          <label for="mzda">Čistá mzda za měsíc (v korunách)</label>
+          <p class="napoveda" id="mzda-napoveda">Je to částka po odečtení daně a pojištění. Najdete ji na výplatní pásce.</p>
+          <input id="mzda" name="mzda" inputmode="numeric" autocomplete="off" aria-describedby="mzda-napoveda mzda-chyba" required>
+          <p class="chyba" id="mzda-chyba" aria-live="polite"></p>
+        </div>
+
+        <div class="pole">
+          <label for="osoby">Kolika lidem platíte výživné?</label>
+          <p class="napoveda" id="osoby-napoveda">Počítejte děti a další lidi, které podle zákona živíte. Manžela nebo manželku započtěte jen v jednom případě. Jeden z vás musí pobírat starobní, invalidní nebo sirotčí důchod. Invalidní důchod se počítá jen druhého či třetího stupně. Nepočítejte toho, kdo po vás výživné vymáhá exekucí.</p>
+          <input id="osoby" name="osoby" type="number" min="0" max="15" step="1" value="0" inputmode="numeric" aria-describedby="osoby-napoveda osoby-chyba">
+          <p class="chyba" id="osoby-chyba" aria-live="polite"></p>
+        </div>
+
+        <fieldset class="pole">
+          <legend>Jaké dluhy máte?</legend>
+          <label class="volba"><input type="radio" name="druh" value="bezne" checked> Běžné dluhy</label>
+          <p class="napoveda">Třeba nesplacená půjčka, telefon, energie nebo nájem.</p>
+          <label class="volba"><input type="radio" name="druh" value="prednostni"> Přednostní dluhy (nebo obojí)</label>
+          <p class="napoveda">Dlužné výživné, daně, sociální nebo zdravotní pojištění. Také náhrada škody na zdraví. Z výplaty se jim strhává víc.</p>
+        </fieldset>
+
+        <div class="pole">
+          <label for="exekuce">Kolik exekucí vám strhávají z výplaty?</label>
+          <p class="napoveda" id="exekuce-napoveda">Od čtyř exekucí se strhávají dvě třetiny, i u běžných dluhů. Když nevíte, napište odhad.</p>
+          <input id="exekuce" name="exekuce" type="number" min="0" max="200" step="1" value="1" inputmode="numeric" aria-describedby="exekuce-napoveda exekuce-chyba">
+          <p class="chyba" id="exekuce-chyba" aria-live="polite"></p>
+        </div>
+
+        <div class="pole">
+          <label class="volba"><input type="checkbox" id="duchod" name="duchod"> Pobírám starobní důchod, invalidní důchod druhého či třetího stupně nebo sirotčí důchod</label>
+          <p class="napoveda">Pro důchodce platí při čtyřech a více exekucích výjimka.</p>
+        </div>
+
+        <div class="pole">
+          <label for="dluh">Kolik dlužíte celkem? (v korunách)</label>
+          <p class="napoveda" id="dluh-napoveda">Sečtěte všechny dluhy. Stačí odhad.</p>
+          <input id="dluh" name="dluh" inputmode="numeric" autocomplete="off" aria-describedby="dluh-napoveda dluh-chyba" required>
+          <p class="chyba" id="dluh-chyba" aria-live="polite"></p>
+        </div>
+
+        <fieldset class="pole">
+          <legend>Odpustil vám už soud někdy dluhy v oddlužení?</legend>
+          <label class="volba"><input type="radio" name="odpusteni" value="ne" checked> Ne, nebo před víc než 20 lety</label>
+          <label class="volba"><input type="radio" name="odpusteni" value="12az20"> Ano, před 12 až 20 lety</label>
+          <label class="volba"><input type="radio" name="odpusteni" value="do12"> Ano, v posledních 12 letech</label>
+        </fieldset>
+
+        <div class="pole">
+          <label class="volba"><input type="checkbox" id="urok" name="urok"> Počítat i s úrokem z prodlení</label>
+          <p class="napoveda" id="urok-napoveda">Úrok z prodlení platíte, když nesplácíte včas. Zákonná sazba pro druhou polovinu roku 2026 je 11,75 % ročně. Ve smlouvě můžete mít jinou.</p>
+          <div class="pole-vnorene" id="urok-pole" hidden>
+            <label for="sazba">Roční sazba v procentech</label>
+            <input id="sazba" name="sazba" inputmode="decimal" value="11,75" aria-describedby="urok-napoveda sazba-chyba">
+            <p class="chyba" id="sazba-chyba" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="akce">
+          <a class="tlacitko druhe" href="#uvod">Zpět</a>
+          <button class="tlacitko" type="submit">Spočítat</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 3. Výsledek -->
+    <section class="obrazovka" id="vysledek" data-obrazovka aria-labelledby="vysledek-nadpis" hidden>
+      <aside class="pomoc-pruh">
+        <p>S výsledkem vám pomůže poradna. <a class="pomoc-odkaz" href="#pomoc">Bezplatná pomoc je tady</a>.</p>
+      </aside>
+      <h1 id="vysledek-nadpis" tabindex="-1">Váš výsledek</h1>
+      <p class="rok-pravidel" id="rok-pravidel"></p>
+      <div class="karty">
+        <article class="karta" aria-labelledby="exekuce-nadpis">
+          <h2 id="exekuce-nadpis">Při exekuci</h2>
+          <dl class="cisla">
+            <div><dt>Z výplaty vám zůstane</dt><dd id="v-zustane">–</dd></div>
+            <div><dt>Strhne se</dt><dd id="v-srazka">–</dd></div>
+            <div><dt>Z toho dostanou věřitelé</dt><dd id="v-vericum">–</dd></div>
+          </dl>
+          <p id="v-nahrada" class="mensi"></p>
+          <p id="v-doba" class="dulezite"></p>
+          <p id="v-upozorneni" class="varovani" hidden></p>
+          <details>
+            <summary>Jak jsme to spočítali</summary>
+            <ul id="v-rozpis" class="rozpis"></ul>
+          </details>
+          <p class="mensi">Dluh mohou dál zvýšit náklady exekuce. Ty tady nepočítáme.</p>
+          <p class="vyhrada">Orientační výpočet. Závazně to posoudí poradna, exekutor nebo insolvenční soud.</p>
+        </article>
+
+        <article class="karta karta-oddluzeni" aria-labelledby="oddluzeni-nadpis">
+          <h2 id="oddluzeni-nadpis">Jak by to vypadalo v oddlužení</h2>
+          <p id="o-nelze" class="varovani" hidden></p>
+          <dl class="cisla">
+            <div><dt>Měsíční splátka</dt><dd id="o-splatka">–</dd></div>
+            <div><dt>Z výplaty vám zůstane</dt><dd id="o-zustane">–</dd></div>
+            <div><dt>Jak dlouho</dt><dd id="o-delka">–</dd></div>
+          </dl>
+          <p id="o-spravce" class="mensi"></p>
+          <p id="o-srovnani" class="mensi"></p>
+          <p id="o-zaplaceno"></p>
+          <p id="o-zbytek" class="dulezite"></p>
+          <p id="o-minimum" class="varovani" hidden></p>
+          <details>
+            <summary>Co se neodpouští</summary>
+            <ul class="rozpis">
+              <li>Výživné, které ze zákona platíte.</li>
+              <li>Náhrada škody na zdraví.</li>
+              <li>Náhrada škody, kterou jste způsobili úmyslně.</li>
+              <li>Peněžitý trest za úmyslný trestný čin.</li>
+              <li>Nové dluhy vzniklé během řízení.</li>
+            </ul>
+          </details>
+          <p class="mensi">Během oddlužení se exekuce zastaví. Úroky přestanou růst.</p>
+          <p class="vyhrada">Orientační výpočet. Závazně to posoudí poradna, exekutor nebo insolvenční soud.</p>
+        </article>
+      </div>
+      <div class="akce">
+        <a class="tlacitko druhe" href="#formular">Upravit údaje</a>
+        <a class="tlacitko" href="#kroky">Co dál</a>
+      </div>
+    </section>
+
+    <!-- 4. Další kroky -->
+    <section class="obrazovka" id="kroky" data-obrazovka aria-labelledby="kroky-nadpis" hidden>
+      <aside class="pomoc-pruh">
+        <p>Nejdůležitější krok: <a class="pomoc-odkaz" href="#pomoc">ozvěte se do bezplatné poradny</a>.</p>
+      </aside>
+      <h1 id="kroky-nadpis">Co udělat dál</h1>
+
+      <h2>1. Zjistěte, jaké exekuce máte</h2>
+      <p>Seznam exekucí vede Exekutorská komora. Jmenuje se Centrální evidence exekucí. Výpis je za poplatek. Dostanete ho na webu komory nebo na poště s Czech POINTem.</p>
+      <p><a href="https://www.ceecr.cz" rel="noopener noreferrer">Centrální evidence exekucí (ceecr.cz)</a></p>
+      <p>Jestli už u vás běží insolvence, zjistíte v insolvenčním rejstříku. Je zdarma.</p>
+      <p><a href="https://isir.justice.cz" rel="noopener noreferrer">Insolvenční rejstřík (isir.justice.cz)</a></p>
+
+      <h2>2. Najděte poradnu</h2>
+      <p>Dluhové poradny jsou zdarma. Najdete je v seznamu ministerstva práce. Hledejte „odborné sociální poradenství“ ve vašem kraji.</p>
+      <p>Návrh na oddlužení za vás zdarma sepíše akreditovaná organizace. Seznam vede ministerstvo spravedlnosti.</p>
+      <p>Odkazy najdete níže v části Bezplatná pomoc.</p>
+
+      <h2>3. Připravte si na první schůzku</h2>
+      <ul>
+        <li>Občanský průkaz.</li>
+        <li>Výplatní pásky za poslední půlrok.</li>
+        <li>Dopisy od věřitelů, exekutorů a soudů.</li>
+        <li>Smlouvy o půjčkách a splátkách.</li>
+        <li>Rozhodnutí soudu o výživném, pokud ho platíte.</li>
+        <li>Přehled, kolik měsíčně platíte za bydlení a energie.</li>
+      </ul>
+      <p>Nemusíte mít všechno. Přijďte i tak.</p>
+
+      <h2>4. Na co si dát pozor</h2>
+      <p>Neplaťte nikomu za sepis návrhu na oddlužení. Akreditované organizace to dělají zdarma.</p>
+      <p>Nová půjčka na splacení starých dluhů situaci většinou zhorší.</p>
+
+      <div class="akce">
+        <a class="tlacitko druhe" href="#vysledek">Zpět na výsledek</a>
+      </div>
+    </section>
+
+    <!-- Bezplatná pomoc: vždy viditelná část stránky -->
+    <section class="pomoc" id="pomoc" aria-labelledby="pomoc-nadpis" tabindex="-1">
+      <h2 id="pomoc-nadpis">Bezplatná pomoc</h2>
+      <ul class="pomoc-seznam">
+        <li>
+          <a href="https://mpsv.gov.cz/registr-poskytovatelu-sluzeb" rel="noopener noreferrer">Dluhové poradny ve vašem okolí</a>
+          <p>Seznam ministerstva práce. Vyberte „odborné sociální poradenství“ a svůj kraj. Služba je ze zákona zdarma.</p>
+        </li>
+        <li>
+          <a href="https://sako.justice.cz" rel="noopener noreferrer">Kdo zdarma sepíše návrh na oddlužení</a>
+          <p>Seznam akreditovaných organizací od ministerstva spravedlnosti. Nesmí si nic účtovat.</p>
+        </li>
+        <li>
+          <a href="https://exekuce.justice.cz/vypocet-srazek-ze-mzdy/" rel="noopener noreferrer">Úřední kalkulačka srážek ze mzdy</a>
+          <p>Kalkulačka ministerstva spravedlnosti.</p>
+        </li>
+        <li>
+          <a href="https://insolvence.justice.cz" rel="noopener noreferrer">Úřední informace o oddlužení</a>
+          <p>Web ministerstva spravedlnosti s kalkulačkou splátek.</p>
+        </li>
+        <li>
+          <a href="https://www.ochrance.cz" rel="noopener noreferrer">Veřejný ochránce práv</a>
+          <p>Srozumitelné letáky o srážkách ze mzdy a o poradenství.</p>
+        </li>
+      </ul>
+      <p class="mensi">Advokát, notář, exekutor nebo insolvenční správce může za sepis návrhu chtít až 4 000 korun bez daně. Seznam je na <a href="https://vesta.justice.cz" rel="noopener noreferrer">vesta.justice.cz</a>.</p>
+    </section>
+  </main>
+
+  <footer class="paticka">
+    <p>Pravidla ověřena <time id="overeno" datetime="2026-11-05">5. 11. 2026</time>. Počítáme podle předpisů platných v roce 2026.</p>
+    <details>
+      <summary>Zdroje</summary>
+      <ul class="zdroje">
+        <li><a href="https://e-sbirka.gov.cz/sb/2006/595" rel="noopener noreferrer">Nařízení vlády o nezabavitelných částkách, číslo 595/2006</a>, ve znění nařízení 548/2025</li>
+        <li><a href="https://e-sbirka.gov.cz/sb/1963/99" rel="noopener noreferrer">Občanský soudní řád, číslo 99/1963</a>, paragrafy 270 a 276 až 280</li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2006/182" rel="noopener noreferrer">Insolvenční zákon, číslo 182/2006</a>, paragrafy 390a, 395, 398, 412a, 414 a 416</li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2007/313" rel="noopener noreferrer">Vyhláška o odměně insolvenčního správce, číslo 313/2007</a></li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2000/485" rel="noopener noreferrer">Vyhláška o náhradě nákladů zaměstnavatele, číslo 485/2000</a>, paragrafy 4d a 4e</li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2022/436" rel="noopener noreferrer">Nařízení vlády o životním minimu, číslo 436/2022</a></li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2025/526" rel="noopener noreferrer">Sdělení ministerstva práce o normativním nájemném pro rok 2026, číslo 526/2025</a></li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2025/151" rel="noopener noreferrer">Zákon o dávce státní sociální pomoci, číslo 151/2025</a>, paragraf 32</li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2013/351" rel="noopener noreferrer">Nařízení vlády o úroku z prodlení, číslo 351/2013</a></li>
+        <li><a href="https://e-sbirka.gov.cz/sb/2006/108" rel="noopener noreferrer">Zákon o sociálních službách, číslo 108/2006</a>, paragrafy 37 a 72</li>
+      </ul>
+    </details>
+    <p>Bez reklam. Nesbíráme žádné údaje.</p>
+  </footer>
+</body>
+</html>

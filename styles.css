@@ -1,0 +1,212 @@
+:root {
+  --pozadi: #f7f6f2;
+  --plocha: #ffffff;
+  --text: #1f2a2e;
+  --tlumeny: #4c5a60;
+  --akcent: #1d6b5f;
+  --akcent-text: #ffffff;
+  --pomoc: #fff1c7;
+  --pomoc-okraj: #d9a520;
+  --varovani: #fde8e4;
+  --varovani-okraj: #b23b2a;
+  --okraj: #d8d6cf;
+  --stin: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pozadi: #151a1c;
+    --plocha: #1e2528;
+    --text: #e9ecea;
+    --tlumeny: #b2bcbf;
+    --akcent: #5cc2ae;
+    --akcent-text: #0f1a18;
+    --pomoc: #3a3216;
+    --pomoc-okraj: #d9a520;
+    --varovani: #3b211d;
+    --varovani-okraj: #f08a78;
+    --okraj: #38423f;
+    --stin: none;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 4rem; }
+
+body {
+  margin: 0;
+  background: var(--pozadi);
+  color: var(--text);
+  font: 1.0625rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-wrap: break-word;
+}
+
+a { color: var(--akcent); }
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--pomoc-okraj);
+  outline-offset: 2px;
+}
+
+/* Horní lišta s odkazem na pomoc – vždy na očích */
+.lista {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--plocha);
+  border-bottom: 1px solid var(--okraj);
+  box-shadow: var(--stin);
+}
+.lista .nazev {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  min-width: 0;
+}
+.lista .pomoc-odkaz {
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: var(--pomoc);
+  border: 2px solid var(--pomoc-okraj);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main, .paticka {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.obrazovka { padding: 1rem 0 1.5rem; }
+.obrazovka > :is(h1, h2, p, ul, form, .akce) { max-width: 42rem; }
+
+h1 { font-size: 1.75rem; line-height: 1.2; margin: 0.75rem 0 0.75rem; }
+h2 { font-size: 1.25rem; line-height: 1.3; margin: 1.5rem 0 0.5rem; }
+
+.pomoc-pruh {
+  background: var(--pomoc);
+  border-left: 5px solid var(--pomoc-okraj);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.9rem;
+}
+.pomoc-pruh p { margin: 0; }
+.pomoc-pruh a { color: var(--text); font-weight: 700; }
+
+.tlacitko {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--akcent);
+  background: var(--akcent);
+  color: var(--akcent-text);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.tlacitko.druhe { background: transparent; color: var(--akcent); }
+.akce { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+/* Formulář */
+.pole { margin: 0 0 1.25rem; padding: 0; border: 0; min-width: 0; }
+.pole > label:not(.volba), legend { display: block; font-weight: 700; margin-bottom: 0.25rem; padding: 0; }
+.napoveda { margin: 0 0 0.4rem; color: var(--tlumeny); font-size: 0.95rem; }
+.volba { display: flex; gap: 0.5rem; align-items: flex-start; margin: 0.35rem 0 0.15rem; font-weight: 600; }
+.volba input { margin-top: 0.3rem; flex-shrink: 0; width: 1.15rem; height: 1.15rem; }
+input:not([type="radio"], [type="checkbox"]) {
+  width: 100%;
+  max-width: 16rem;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--plocha);
+  border: 2px solid var(--okraj);
+  border-radius: 0.4rem;
+}
+input[aria-invalid="true"] { border-color: var(--varovani-okraj); }
+.chyba { margin: 0.25rem 0 0; color: var(--varovani-okraj); font-weight: 600; min-height: 0; }
+.chyba:empty { display: none; }
+.pole-vnorene { margin-top: 0.5rem; }
+.pole-vnorene label { display: block; font-weight: 600; }
+
+/* Výsledky */
+.rok-pravidel { color: var(--tlumeny); }
+.karty { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 48rem) { .karty { grid-template-columns: 1fr 1fr; } }
+.karta {
+  background: var(--plocha);
+  border: 1px solid var(--okraj);
+  border-radius: 0.75rem;
+  padding: 1rem 1.1rem;
+  box-shadow: var(--stin);
+  min-width: 0;
+}
+.karta h2 { margin-top: 0.25rem; }
+.karta-oddluzeni { border-top: 5px solid var(--akcent); }
+.cisla { margin: 0 0 0.75rem; }
+.cisla div { display: flex; justify-content: space-between; gap: 0.75rem; padding: 0.4rem 0; border-bottom: 1px solid var(--okraj); }
+.cisla dt { color: var(--tlumeny); }
+.cisla dd { margin: 0; font-weight: 700; font-size: 1.15rem; text-align: right; white-space: nowrap; }
+.dulezite { font-weight: 700; }
+.mensi { font-size: 0.95rem; color: var(--tlumeny); }
+.mensi:empty { display: none; }
+.varovani {
+  background: var(--varovani);
+  border-left: 5px solid var(--varovani-okraj);
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.8rem;
+}
+.vyhrada {
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--okraj);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+details { margin: 0.75rem 0; }
+summary { cursor: pointer; font-weight: 600; color: var(--akcent); }
+.rozpis { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+
+/* Bezplatná pomoc */
+.pomoc {
+  margin: 1rem 0 2rem;
+  padding: 1rem 1.1rem;
+  background: var(--pomoc);
+  border: 2px solid var(--pomoc-okraj);
+  border-radius: 0.75rem;
+}
+.pomoc h2 { margin-top: 0; }
+.pomoc-seznam { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+.pomoc-seznam a { font-weight: 700; color: var(--text); }
+.pomoc-seznam p { margin: 0.15rem 0 0; }
+.pomoc .mensi { color: var(--text); }
+
+.paticka {
+  padding-bottom: 2rem;
+  color: var(--tlumeny);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--okraj);
+}
+.zdroje { padding-left: 1.2rem; }
+.zdroje li { margin: 0.3rem 0; }
+
+@media (max-width: 24rem) {
+  .lista .nazev { font-size: 0.85rem; }
+  .lista .pomoc-odkaz { padding: 0.4rem 0.6rem; font-size: 0.95rem; }
+  h1 { font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
