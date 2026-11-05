@@ -171,6 +171,7 @@ function zobrazVysledek(v) {
   min.textContent = od.splnujeMinimum ? '' : `Splátka musí být aspoň ${korun(od.minimum)} měsíčně. Jinak soud oddlužení nepovolí. V poradně zjistíte, jak to řešit. Pomoct může třeba příspěvek od blízkého člověka.`;
 
   nastav('rok-pravidel', rokPravidel.poznamka);
+  nastav('v-poznamka-rok', rokPravidel.upozorneniExekuce);
 }
 
 function init(rules) {
@@ -182,6 +183,7 @@ function init(rules) {
     poznamka: rok < dnes
       ? `Pravidla pro rok ${dnes} zatím nejsou úplná. Počítáme podle roku ${rok}.`
       : `Počítáme podle pravidel pro rok ${rok}.`,
+    upozorneniExekuce: rules.roky[rok].upozorneniExekuce ?? '',
   };
 
   $('urok').addEventListener('change', () => { $('urok-pole').hidden = !$('urok').checked; });

@@ -79,7 +79,10 @@ export function analyzuj(text) {
 export function nactiTextyWebu(koren = new URL('..', import.meta.url)) {
   const html = readFileSync(new URL('index.html', koren), 'utf8');
   const js = readFileSync(new URL('app.js', koren), 'utf8');
-  return `${textZHtml(html)}\n${textZJs(js)}`;
+  const rules = JSON.parse(readFileSync(new URL('rules.json', koren), 'utf8'));
+  // Texty z pravidel, které se zobrazují na stránce.
+  const zPravidel = Object.values(rules.roky).map((r) => r.upozorneniExekuce ?? '').join('\n');
+  return `${textZHtml(html)}\n${textZJs(js)}\n${zPravidel}`;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

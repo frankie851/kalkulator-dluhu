@@ -7,9 +7,9 @@
       "zivotniMinimum": {
         "hodnota": 4860,
         "popis": "Životní minimum jednotlivce k 1. 1. 2026",
-        "zdroj": "Nařízení vlády č. 436/2022 Sb., § 1",
-        "odkaz": "https://e-sbirka.gov.cz/sb/2022/436",
-        "ucinnostOd": "2023-01-01"
+        "zdroj": "Nařízení vlády č. 361/2025 Sb., § 1, ve znění nařízení č. 57/2026 Sb.",
+        "odkaz": "https://e-sbirka.gov.cz/sb/2025/361",
+        "ucinnostOd": "2025-10-01"
       },
       "normativniNajemne": {
         "hodnota": 9430,
@@ -122,7 +122,8 @@
         "zdroj": "Zákon č. 182/2006 Sb., insolvenční zákon, § 395 odst. 1 písm. b)",
         "odkaz": "https://e-sbirka.gov.cz/sb/2006/182",
         "ucinnostOd": "2019-06-01"
-      }
+      },
+      "upozorneniExekuce": "Úřední kalkulačka ministerstva nabízí od října 2026 i výpočet s nižší srážkou. Nařízení vlády ale říká, že platí částky k 1. lednu. Jak se to počítá u vás, potvrdí exekutor nebo poradna."
     },
     "2027": {
       "status": "neúplné",
@@ -148,6 +149,97 @@
         "odkaz": "https://e-sbirka.gov.cz/sb/2025/151",
         "ucinnostOd": "2025-10-01"
       }
+    }
+  },
+  "srovnaniSUredniKalkulackou": {
+    "datum": "2026-11-05",
+    "poznamka": "Výsledky úředních kalkulaček Ministerstva spravedlnosti pro rok 2026. Kalkulačka srážek ve variantě „2026 výpočet od 1. 1.“ s náhradou plátce mzdy. Výchozí varianta „od 1. 10.“ počítá se životním minimem 5 500 Kč, což neodpovídá § 4 nařízení vlády č. 595/2006 Sb.; proto ji nepoužíváme.",
+    "exekuce": {
+      "adresa": "https://exekuce.justice.cz/vypocet-srazek-ze-mzdy/",
+      "varianta": "012026",
+      "pripady": [
+        {
+          "cistaMzda": 23000,
+          "osoby": 0,
+          "prednostni": false,
+          "pocetExekuci": 1,
+          "srazka": 2966,
+          "exekutorovi": 2916,
+          "nahrada": 50,
+          "kVyplate": 20034
+        },
+        {
+          "cistaMzda": 35000,
+          "osoby": 2,
+          "prednostni": false,
+          "pocetExekuci": 4,
+          "srazka": 9230,
+          "exekutorovi": 9180,
+          "nahrada": 50,
+          "kVyplate": 25770
+        },
+        {
+          "cistaMzda": 50000,
+          "osoby": 0,
+          "prednostni": true,
+          "pocetExekuci": 1,
+          "srazka": 25391,
+          "exekutorovi": 25341,
+          "nahrada": 50,
+          "kVyplate": 24609
+        },
+        {
+          "cistaMzda": 50000,
+          "osoby": 0,
+          "prednostni": false,
+          "pocetExekuci": 1,
+          "srazka": 14884,
+          "exekutorovi": 14834,
+          "nahrada": 50,
+          "kVyplate": 35116
+        }
+      ]
+    },
+    "oddluzeni": {
+      "adresa": "https://insolvence.justice.cz/kalkulator-splatek/",
+      "varianta": "012026",
+      "pripady": [
+        {
+          "cistaMzda": 23000,
+          "osoby": 0,
+          "splatka": 5932,
+          "kVyplate": 17068,
+          "za3roky": 213552
+        },
+        {
+          "cistaMzda": 35000,
+          "osoby": 2,
+          "splatka": 9230,
+          "kVyplate": 25770,
+          "za3roky": 332280
+        },
+        {
+          "cistaMzda": 17370,
+          "osoby": 0,
+          "splatka": 2178,
+          "kVyplate": 15192,
+          "za3roky": 78408
+        },
+        {
+          "cistaMzda": 50000,
+          "osoby": 0,
+          "splatka": 25391,
+          "kVyplate": 24609,
+          "za3roky": 914076
+        },
+        {
+          "cistaMzda": 30000,
+          "osoby": 0,
+          "splatka": 10598,
+          "kVyplate": 19402,
+          "za3roky": 381528
+        }
+      ]
     }
   }
 }

@@ -82,3 +82,9 @@ test('patička uvádí datum ověření shodné s rules.json', () => {
   const rules = JSON.parse(readFileSync(new URL('../rules.json', import.meta.url), 'utf8'));
   assert.match(html, new RegExp(`<time id="overeno" datetime="${rules.overeno}"`));
 });
+
+test('karta exekuce má místo pro poznámku k variantě úřední kalkulačky', () => {
+  const karta = sekce('vysledek').match(/<article[\s\S]*?<\/article>/)[0];
+  assert.match(karta, /id="v-poznamka-rok"/);
+  assert.match(js, /upozorneniExekuce/);
+});

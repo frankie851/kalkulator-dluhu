@@ -41,3 +41,10 @@ test('rok 2027 je označen jako neúplný, dokud chybí normativní nájemné', 
   assert.equal(r.normativniNajemne.hodnota, null);
   assert.equal(r.zivotniMinimum.hodnota, 5500);
 });
+
+test('životní minimum k 1. 1. 2026 má správný zdroj (nařízení 361/2025)', () => {
+  const zm = rules.roky['2026'].zivotniMinimum;
+  assert.equal(zm.hodnota, 4860);
+  assert.match(zm.zdroj, /361\/2025/);
+  assert.equal(zm.odkaz, 'https://e-sbirka.gov.cz/sb/2025/361');
+});
